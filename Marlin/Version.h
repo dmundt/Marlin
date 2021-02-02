@@ -28,7 +28,7 @@
 /**
  * Marlin release version identifier
  */
-#define SHORT_BUILD_VERSION "cr7/experimental"
+#define SHORT_BUILD_VERSION "cr7/exp"
 
 /**
  * Verbose version identifier which should contain a reference to the location
