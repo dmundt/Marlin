@@ -513,7 +513,7 @@
     #define HAS_PRUSA_MMU2 1
     #define HAS_PRUSA_MMU2S 1
   #endif
-  #if MMU_MODEL >= SMUFF_EMU_MMU2
+  #if MMU_MODEL == SMUFF_EMU_MMU2 || MMU_MODEL == SMUFF_EMU_MMU2S
     #define HAS_SMUFF 1
   #endif
 #endif
@@ -1194,4 +1194,11 @@
     #define TOUCH_OFFSET_Y       XPT2046_Y_OFFSET
     #define TOUCH_ORIENTATION    TOUCH_LANDSCAPE
   #endif
+#endif
+
+#if ANY(USE_XMIN_PLUG, USE_YMIN_PLUG, USE_ZMIN_PLUG, USE_XMAX_PLUG, USE_YMAX_PLUG, USE_ZMAX_PLUG)
+  #define HAS_ENDSTOPS 1
+  #define COORDINATE_OKAY(N,L,H) WITHIN(N,L,H)
+#else
+  #define COORDINATE_OKAY(N,L,H) true
 #endif
